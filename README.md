@@ -38,9 +38,10 @@ TODO
 
 Telemetry is a series of lessons with instructions for wiring hardware modules to a microcontroller, then programming the microcontroller to interface with the modules. Throughout these lessons, individuals will learn the basiscs of microcontrollers, wiring, programming, and debugging.
 
-## Lesson 1
+## Hardware
 
-1. [Hardware](/telemetry/raspberry-pi-pico/hardware/README.md)
+* [Raspberry Pi Pico](/telemetry/raspberry-pi-pico/hardware/README.md)
+* Arduino
 
 # Data
 
