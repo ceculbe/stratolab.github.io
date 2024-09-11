@@ -47,3 +47,11 @@ Telemetry is a series of lessons with instructions for wiring hardware modules t
 # Data
 
 TODO
+
+<hr>
+
+<div style="text-align: center; font-size: 8px;">
+    <p>This project and the projects within adheres to the GPLv3 license. "IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM."
+    </p>
+    <p>For more information reference the full <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3 license</a>.
+</div>
