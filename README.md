@@ -6,8 +6,6 @@
     src="images/stratolab.png" 
     alt="StratoLab logo">
 
-# StratoLab
-
 Welcome to StratoLab! StratoLab is a project built to be usable by schools, community groups, youth organizations, and more as an introduction to programming, electronics and team building.
 
 The [National Weather Service](https://www.weather.gov/chs/upperair) launches a minimum of two high altitude balloons a day from [91 locations](https://www.weather.gov/upperair/nws_upper) at `1100` and `2300` UTC to observe weather conditions used to model weather forecasts. When flying high altitude ballons, data is usually collected throughout the flight and later retrieved for analysis.
