@@ -3,7 +3,7 @@
            margin-left: auto;
            margin-right: auto;
            width: 30%;"
-    src="images/stratolab.png" 
+    src="assets/images/stratolab.png" 
     alt="StratoLab logo">
 
 Welcome to StratoLab! StratoLab is a project built to be usable by schools, community groups, youth organizations, and more as an introduction to programming, electronics and team building.
