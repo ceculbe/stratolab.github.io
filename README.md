@@ -41,6 +41,15 @@ Telemetry is a series of lessons with instructions for wiring hardware modules t
 ## Hardware
 
 * [Raspberry Pi Pico](/telemetry/raspberry-pi-pico/hardware/README.md)
+  * [Workbench](/telemetry/raspberry-pi-pico/workbench/README.md)
+  * [Lesson 1](/telemetry/raspberry-pi-pico/lesson-1/README.md)
+  * [Lesson 2](/telemetry/raspberry-pi-pico/lesson-2/README.md)
+  * [Lesson 3](/telemetry/raspberry-pi-pico/lesson-3/README.md)
+  * [Lesson 4](/telemetry/raspberry-pi-pico/lesson-4/README.md)
+  * [Lesson 5](/telemetry/raspberry-pi-pico/lesson-5/README.md)
+  * [Lesson 6](/telemetry/raspberry-pi-pico/lesson-6/README.md)
+  * [Lesson 7](/telemetry/raspberry-pi-pico/lesson-7/README.md)
+  * [Lesson 8](/telemetry/raspberry-pi-pico/lesson-8/README.md)
 * Arduino
 
 # Data
