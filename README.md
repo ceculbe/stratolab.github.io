@@ -8,7 +8,7 @@
 
 Welcome to StratoLab! StratoLab is a project built to be usable by schools, community groups, youth organizations, and more as an introduction to programming, electronics and team building.
 
-The [National Weather Service](https://www.weather.gov/chs/upperair) launches a minimum of two high altitude balloons a day from [91 locations](https://www.weather.gov/upperair/nws_upper) at `1100` and `2300` UTC to observe weather conditions used to model weather forecasts. When flying high altitude ballons, data is usually collected throughout the flight and later retrieved for analysis.
+The [National Weather Service](https://www.weather.gov/chs/upperair) launches a minimum of two high altitude balloons a day from [91 locations](https://www.weather.gov/upperair/nws_upper) at `1100` and `2300` UTC to observe weather conditions used to model weather forecasts. When flying high altitude balloons, data is usually collected throughout the flight and later retrieved for analysis.
 
 This project contains lessons wherein learners will launch their own weather balloon to the stratosphere, or approximately 90,000+ feet. Throughout the balloon flight, the components within the payload will collect temperature, barometric pressure, latitude, longitude, elevation, and other telemetry data. This information is collected via the peripheral modules attached to the microcontrollers within the payload and stored in an SD card for analysis after recovery.
 
@@ -42,15 +42,23 @@ Telemetry is a series of lessons with instructions for wiring hardware modules t
 
 * [Raspberry Pi Pico](/telemetry/raspberry-pi-pico/hardware/README.md)
   * [Workbench](/telemetry/raspberry-pi-pico/workbench/README.md)
-  * [Lesson 1](/telemetry/raspberry-pi-pico/lesson-1/README.md)
-  * [Lesson 2](/telemetry/raspberry-pi-pico/lesson-2/README.md)
-  * [Lesson 3](/telemetry/raspberry-pi-pico/lesson-3/README.md)
-  * [Lesson 4](/telemetry/raspberry-pi-pico/lesson-4/README.md)
-  * [Lesson 5](/telemetry/raspberry-pi-pico/lesson-5/README.md)
-  * [Lesson 6](/telemetry/raspberry-pi-pico/lesson-6/README.md)
-  * [Lesson 7](/telemetry/raspberry-pi-pico/lesson-7/README.md)
-  * [Lesson 8](/telemetry/raspberry-pi-pico/lesson-8/README.md)
+  * [Lesson 1](/telemetry/raspberry-pi-pico/python/lesson-1/README.md)
+  * [Lesson 2](/telemetry/raspberry-pi-pico/python/lesson-2/README.md)
+  * [Lesson 3](/telemetry/raspberry-pi-pico/python/lesson-3/README.md)
+  * [Lesson 4](/telemetry/raspberry-pi-pico/python/lesson-4/README.md)
+  * [Lesson 5](/telemetry/raspberry-pi-pico/python/lesson-5/README.md)
+  * [Lesson 6](/telemetry/raspberry-pi-pico/python/lesson-6/README.md)
+  * [Lesson 7](/telemetry/raspberry-pi-pico/python/lesson-7/README.md)
+  * [Lesson 8](/telemetry/raspberry-pi-pico/python/lesson-8/README.md)
 * Arduino
+  * [Workbench](/telemetry/arduino/workbench/README.md)
+  * [Lesson 1](/telemetry/arduino/c/lesson-1/README.md)
+  * [Lesson 2](/telemetry/arduino/c/lesson-2/README.md)
+  * [Lesson 3](/telemetry/arduino/c/lesson-3/README.md)
+  * [Lesson 4](/telemetry/arduino/c/lesson-4/README.md)
+  * [Lesson 5](/telemetry/arduino/c/lesson-5/README.md)
+  * [Lesson 6](/telemetry/arduino/c/lesson-6/README.md)
+  * [Lesson 7](/telemetry/arduino/c/lesson-7/README.md)
 
 # Data
 
