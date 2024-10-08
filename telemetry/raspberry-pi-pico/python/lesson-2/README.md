@@ -77,7 +77,7 @@ Next, let's wire an LED to the Pi Pico using the breadboard, a resistor, jumper 
 
 Below is an LED (Light Emitting Diode). Notice that one leg of the LED is longer than the other. The longer leg is the positive (`+`) side and the shorter leg is the negative (`-`) side. This is important to remember. Wiring the LED backward wil not allow it to light up, or potentially destroy it.
 
-<img src="assets/images/LEDPolarity.jpg" width=25% >
+<img src="assets/images/LEDPolarity.jpg" width="25%" >
 
 You will also need a resistor which is pictured below. The more resistance provided by the resistor, the less current is allowed to flow to the LED. More current means a brighter light, less current means a dimmer light. If you were to skip the resistor (or use one with too little resistance), you will damage both the LED and the Pi because the LED would get more current than it can handle and the Pi would be sending more current than it can support through that pin. The resistor is important to protect the circut from overloading. 
 
