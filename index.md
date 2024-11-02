@@ -22,12 +22,19 @@ Each lesson is constructed to be completed within the timeframe of a typical cla
 
 Let's get started!
 
-# Balloon
+# Materials
+
+This project involves materials needed in the classroom, for balloon assembly, and also payload assembly. Before getting started, it's important to understand the total cost and list of materials needed for this project to be a success.
+
+The [Materials](materials.md) guide will help mentors and students estimate and acquire the materials needed for this project.
+
+# Balloon Assembly and Launch
 
 * Overview: [What to know before launching a high altitude balloon](balloon/overview.md)
-* Supplies: [Materials need to assemble the balloon and its payload](balloon/supplies.md)
+* Supplies: [Supplies and materials need to assemble the balloon and its payload](balloon/supplies.md)
 * Assembly: [Assembly instructions and day-of-launch guidance](balloon/assembly.md)
 * Prediction: [Tools and techniques for predicting balloon flight behavior](balloon/prediction.md)
+* Checklist: [Useful checklist for launch day prep and balloon launch](balloon/checklist.md)
 
 # Radio
 
@@ -66,6 +73,26 @@ Telemetry is a series of lessons with instructions for wiring hardware modules t
 # Data
 
 TODO
+
+# Resources
+Things to check out to learn more!
+
+## Amateur Radio
+You may be asking why is this here? Well, the primary tracking system on the balloon uses a form of radio called APRS. Without it you would never be able to find your balloon. There is some really cool nerdy stuff that has many scholorship opportunties within the radio world (hint hint).
+- [ARRL](https://www.arl.org/)
+- [APRS](http://aprs.org/) which you need a amateur licensce to operate.
+- [LightAPRS-W (+WSPR) Tracker](http://qrp-labs.com/lightaprs-w.html)
+- [Technician study webinar](https://youtu.be/0wwnOPaF1qI)
+
+## Arduino
+- [Arduino basics with hands on labs](https://youtu.be/fJWR7dBuc18)
+
+## High Altitude Balloons
+- [Crazy long video showing everything this person does to launch and lots of tricks](https://youtu.be/a42fEO0dZ0M)
+- [Overlook Horizon - HAB HowTo](https://www.overlookhorizon.com/how-to-launch-weather-balloons/)
+
+## Python
+- [Google Python Class](https://developers.google.com/edu/python)
 
 <hr>
 
