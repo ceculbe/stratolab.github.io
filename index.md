@@ -24,7 +24,10 @@ Let's get started!
 
 # Balloon
 
-TODO
+* Overview: [What to know before launching a high altitude balloon](balloon/overview.md)
+* Supplies: [Materials need to assemble the balloon and its payload](balloon/supplies.md)
+* Assembly: [Assembly instructions and day-of-launch guidance](balloon/assembly.md)
+* Prediction: [Tools and techniques for predicting balloon flight behavior](balloon/prediction.md)
 
 # Radio
 
