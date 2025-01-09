@@ -69,6 +69,15 @@ Telemetry is a series of lessons with instructions for wiring hardware modules t
   * [Lesson 5](/telemetry/arduino/c/lesson-5/README.md)
   * [Lesson 6](/telemetry/arduino/c/lesson-6/README.md)
   * [Lesson 7](/telemetry/arduino/c/lesson-7/README.md)
+* ESP32 Wireless Tracker
+  * [Workbench](/telemetry/esp-32-heltec-tracker/workbench/README.md)
+  * [Lesson 1](/telemetry/esp32-heltec-tracker/c/lesson-1/README.md)
+  * [Lesson 2](/telemetry/esp32-heltec-tracker/c/lesson-2/README.md)
+  * [Lesson 3](/telemetry/esp32-heltec-tracker/c/lesson-3/README.md)
+  * [Lesson 4](/telemetry/esp32-heltec-tracker/c/lesson-4/README.md)
+  * [Lesson 5](/telemetry/esp32-heltec-tracker/c/lesson-5/README.md)
+  * [Lesson 6](/telemetry/esp32-heltec-tracker/c/lesson-6/README.md)
+  * [Lesson 7](/telemetry/esp32-heltec-tracker/c/lesson-7/README.md)
 
 # Data
 
