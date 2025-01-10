@@ -8,7 +8,7 @@ Students will:
 
 ### Materials:
 - [Heltec Wireless Tracker](https://heltec.org/project/wireless-tracker/)\
-  ![Image of Heltec Wireless Tracker](assets/images/heltec-wireless-tracker.png)
+  ![Image of Heltec Wireless Tracker](assets/images/heltec_wireless_tracker.png)
 - [Breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/all)\
  ![Image of breadboard https://www.flickr.com/photos/adafruit/23346083742 License: Sharealike-2.0](assets/images/breadboard.png)
 - [BMP-180 - Barometric Pressure/Temperature/Altitude Sensor](https://www.adafruit.com/product/1603)\
@@ -16,7 +16,7 @@ Students will:
 - [SD card adapter](https://electropeak.com/micro-sd-tf-card-adapter-module)\
   ![Image of SD Card Adapter](assets/images/sd_card_module.jpg) 
 - [Micro SD card](https://en.wikipedia.org/wiki/SD_card)\
-  ![Image of Micro SD Card](assets/images/micro-sd-card.png) 
+  ![Image of Micro SD Card](assets/images/micro_sd_card.png) 
 
 ### What do all these parts do anyway?
 
@@ -120,7 +120,9 @@ Students will:
   The installed version is recommended since it is more powerful and customizable. Use the link above to download and install the software. Check with your mentor or instructor if there are any special steps needed for your computer.
 
 2. You will also need to install some special files that are needed to control the ESP32 microcontroller:
-    - Open the IDE on your computer. Click on the **Board Manager** icon on the left.\
+    - Open the IDE on your computer. Go to the **File** menu in the top menu bar. Select the **Preferences** option. In the window that appears, type or copy/paste this text into the **Additional boards manager URLs** box: `https://resource.heltec.cn/download/package_heltec_esp32_index.json`  and then click **OK**. \
+    ![Image of the Preferences window](assets/images/config-preferences.png)
+    -  Next, click on the **Board Manager** icon on the left.\
     ![Image of the board manager icon location](assets/images/board-manager-location.png))
     - Type **Heltec** in the search box. The search results should show **Heltec ESP32 Series Dev-boards**. Click on the **Install** button to install this package of files. This will take a few minutes. You will see status messages in the output window at the bottom of the screen.\
     ![Image of the search box and Install button](assets/images/search-and-install.png)
@@ -148,6 +150,6 @@ Students will:
           delay(1000);
         }
         ```
-    - Click the Upload icon at the top of the editor window. You should see status messages at the bottom of the screen as the IDE compiles and uploads your code.\
+    - Click the **Upload** icon at the top of the editor window. You should see status messages at the bottom of the screen as the IDE compiles and uploads your code.\
     ![Image of Upload icon](assets/images/upload-button.png)
-    - Press Ctrl-Shift-M to open the serial monitor window. This is where messages from the microcontroller are displayed. Try to figure out how the messages in the serial monitor are caused by the code in the editor window.
+    - Press **Ctrl-Shift-M** to open the serial monitor window. This is where messages from the microcontroller are displayed. Try to figure out how the messages in the serial monitor are caused by the code in the editor window.
