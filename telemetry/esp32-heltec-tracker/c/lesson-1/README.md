@@ -4,19 +4,19 @@
 Students will: 
 - learn the components used for this project
 - gain a basic understanding of electronics to complete the project
-- ensure the [Integrated Development Environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment) can connect to the microcontroller and upload code
+- ensure they can connect to the microcontroller and upload code
 
 ### Materials:
 - [Heltec Wireless Tracker](https://heltec.org/project/wireless-tracker/)\
-  ![Image of Heltec Wireless Tracker](assets\images\heltec-wireless-tracker.jpg)\
+  ![Image of Heltec Wireless Tracker](assets\images\heltec-wireless-tracker.jpg)
 - [Breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/all)\
- ![Image of breadboard https://www.flickr.com/photos/adafruit/23346083742 License: Sharealike-2.0](assets\images\breadboard.png)\
+ ![Image of breadboard https://www.flickr.com/photos/adafruit/23346083742 License: Sharealike-2.0](assets\images\breadboard.png)
 - [BMP-180 - Barometric Pressure/Temperature/Altitude Sensor](https://www.adafruit.com/product/1603)\
-  ![Image of BMP-180](assets\images\BMP-180.jpg)\
+  ![Image of BMP-180](assets\images\BMP-180.jpg)
 - [SD card adapter](https://electropeak.com/micro-sd-tf-card-adapter-module)\
-  ![Image of SD Card Adapter](assets/images/sd_card_module.jpg) \
+  ![Image of SD Card Adapter](assets/images/sd_card_module.jpg) 
 - [Micro SD card](https://en.wikipedia.org/wiki/SD_card)\
-  ![Image of Micro SD Card](assets/images/micro-sd-card.png) \
+  ![Image of Micro SD Card](assets/images/micro-sd-card.png) 
 
 ### What do all these parts do anyway?
 
@@ -88,7 +88,13 @@ Students will:
 - SD cards come in two sizes, we will be using micro SD cards in an adapter to allow them to be read by multiple types of SD readers on computers
 - SD stands for secure digital
 
-### Basic guide to electronics safety
+#### [Integrated Development Environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment)
+- A software tool that allows you to edit code and then test it. 
+- The Arduino IDE can be used to program a wide variety of microcontrollers. It uses the C/C++ languages.
+- Other IDEs are popular for developing in Java, Python, JavaScript, and other langagues.
+
+
+### Basic Guide to Electronics Safety
 
 - Like many things, attention to detail will likely seperate success from frustration as labs are completed. Close attention and validation will keep teams on track.
 
@@ -105,9 +111,43 @@ Students will:
    - NO [MAGIC SMOKE](https://en.m.wikipedia.org/wiki/Magic_smoke) should be released!
 
 
+## Activity
+
 ### Getting started with the IDE
-- This project will be using the Arduino Integrated Development Environment
-- There are multiple versions of this
-  - [Versions for various operating systems (Windows, Mac, Linux, etc)](https://www.arduino.cc/en/software)
-  - [Arduino Web Editor](https://create.arduino.cc/editor)
-- This tool allows users to write code, interact with their microcontroller, view output, and much more
+1. You will be using the Arduino IDE. This IDE can be accessed in two different ways:
+    - [Installed on a laptop](https://www.arduino.cc/en/software)
+    - [Accessed on the web](https://create.arduino.cc/editor)\
+  The installed version is recommended since it is more powerful and customizable. Use the link above to download and install the software. Check with your mentor or instructor if there are any special steps needed for your computer.
+
+2. You will also need to install some special files that are needed to control the ESP32 microcontroller:
+    - Open the IDE on your computer. Click on the **Board Manager** icon on the left.\
+    ![Image of the board manager icon location](assets\images\board-manager-location.png))
+    - Type **Heltec** in the search box. The search results should show **Heltec ESP32 Series Dev-boards**. Click on the **Install** button to install this package of files. This will take a few minutes. You will see status messages in the output window at the bottom of the screen.\
+    ![Image of the search box and Install button](assets\images\search-and-install.png)
+
+3. Next, you will need to connect your ESP microcontroller:
+    - Plug the ESP32 Wireless Tracker board into your computer using a USB-A to USB-C cable. 
+    - Go to the **Tools** menu in the top menu bar. Select the **Board** option, then **Heltec ESP32 Series Dev Boards**, then finally **Wireless Tracker**.\
+    ![Image of the board select menu](assets\images\select-board-type.png)
+    - Again, go to the **Tools** menu in the top menu bar. Select the **Port** option, then select the port that most closely appears to be your ESP32 microcontroller. Often, there will be only one option. If the choices are not clear, ask you mentor or instructor for guidance.
+
+4. Finally, you will try to load a small program to see if the IDE and microcontroller are working together:
+    - Delete all of the text in the main editor window, starting with the line `void setup() {` and continuing through the last `}` symbol. (As you will learn, every small character is important in code.)
+    - Copy and paste this code into the editor window
+        ```
+        int count = 1;
+
+        void setup() {
+          Serial.begin(115200);
+          Serial.print("Hello, World!");
+        }
+
+        void loop() {
+          Serial.print(count);
+          count++;
+          delay(1000);
+        }
+        ```
+    - Click the Upload icon at the top of the editor window. You should see status messages at the bottom of the screen as the IDE compiles and uploads your code.\
+    ![Image of Upload icon](\assets\images\upload-button.png)
+    - Press Ctrl-Shift-M to open the serial monitor window. This is where messages from the microcontroller are displayed. Try to figure out how the messages in the serial monitor are caused by the code in the editor window.
