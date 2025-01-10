@@ -8,11 +8,11 @@ Students will:
 
 ### Materials:
 - [Heltec Wireless Tracker](https://heltec.org/project/wireless-tracker/)\
-  ![Image of Heltec Wireless Tracker](assets\images\heltec-wireless-tracker.jpg)
+  ![Image of Heltec Wireless Tracker](assets/images/heltec-wireless-tracker.png)
 - [Breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/all)\
- ![Image of breadboard https://www.flickr.com/photos/adafruit/23346083742 License: Sharealike-2.0](assets\images\breadboard.png)
+ ![Image of breadboard https://www.flickr.com/photos/adafruit/23346083742 License: Sharealike-2.0](assets/images/breadboard.png)
 - [BMP-180 - Barometric Pressure/Temperature/Altitude Sensor](https://www.adafruit.com/product/1603)\
-  ![Image of BMP-180](assets\images\BMP-180.jpg)
+  ![Image of BMP-180](assets/images/BMP-180.jpg)
 - [SD card adapter](https://electropeak.com/micro-sd-tf-card-adapter-module)\
   ![Image of SD Card Adapter](assets/images/sd_card_module.jpg) 
 - [Micro SD card](https://en.wikipedia.org/wiki/SD_card)\
@@ -121,14 +121,14 @@ Students will:
 
 2. You will also need to install some special files that are needed to control the ESP32 microcontroller:
     - Open the IDE on your computer. Click on the **Board Manager** icon on the left.\
-    ![Image of the board manager icon location](assets\images\board-manager-location.png))
+    ![Image of the board manager icon location](assets/images/board-manager-location.png))
     - Type **Heltec** in the search box. The search results should show **Heltec ESP32 Series Dev-boards**. Click on the **Install** button to install this package of files. This will take a few minutes. You will see status messages in the output window at the bottom of the screen.\
-    ![Image of the search box and Install button](assets\images\search-and-install.png)
+    ![Image of the search box and Install button](assets/images/search-and-install.png)
 
 3. Next, you will need to connect your ESP microcontroller:
     - Plug the ESP32 Wireless Tracker board into your computer using a USB-A to USB-C cable. 
     - Go to the **Tools** menu in the top menu bar. Select the **Board** option, then **Heltec ESP32 Series Dev Boards**, then finally **Wireless Tracker**.\
-    ![Image of the board select menu](assets\images\select-board-type.png)
+    ![Image of the board select menu](assets/images/select-board-type.png)
     - Again, go to the **Tools** menu in the top menu bar. Select the **Port** option, then select the port that most closely appears to be your ESP32 microcontroller. Often, there will be only one option. If the choices are not clear, ask you mentor or instructor for guidance.
 
 4. Finally, you will try to load a small program to see if the IDE and microcontroller are working together:
@@ -149,5 +149,5 @@ Students will:
         }
         ```
     - Click the Upload icon at the top of the editor window. You should see status messages at the bottom of the screen as the IDE compiles and uploads your code.\
-    ![Image of Upload icon](assets\images\upload-button.png)
+    ![Image of Upload icon](assets/images/upload-button.png)
     - Press Ctrl-Shift-M to open the serial monitor window. This is where messages from the microcontroller are displayed. Try to figure out how the messages in the serial monitor are caused by the code in the editor window.
