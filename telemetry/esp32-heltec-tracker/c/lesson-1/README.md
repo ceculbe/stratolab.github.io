@@ -149,5 +149,5 @@ Students will:
         }
         ```
     - Click the Upload icon at the top of the editor window. You should see status messages at the bottom of the screen as the IDE compiles and uploads your code.\
-    ![Image of Upload icon](\assets\images\upload-button.png)
+    ![Image of Upload icon](assets\images\upload-button.png)
     - Press Ctrl-Shift-M to open the serial monitor window. This is where messages from the microcontroller are displayed. Try to figure out how the messages in the serial monitor are caused by the code in the editor window.
