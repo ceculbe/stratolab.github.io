@@ -10,7 +10,7 @@ Students will:
 - [Heltec Wireless Tracker](https://heltec.org/project/wireless-tracker/)\
   ![Image of Heltec Wireless Tracker](assets/images/heltec_wireless_tracker.png)
 - [Breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/all)\
- ![Image of breadboard https://www.flickr.com/photos/adafruit/23346083742 License: Sharealike-2.0](assets/images/breadboard.png)
+ ![Image of a breadboard https://www.flickr.com/photos/adafruit/23346083742 License: Sharealike-2.0](assets/images/breadboard.png)
 - [BMP-180 - Barometric Pressure/Temperature/Altitude Sensor](https://www.adafruit.com/product/1603)\
   ![Image of BMP-180](assets/images/BMP-180.jpg)
 - [SD card adapter](https://electropeak.com/micro-sd-tf-card-adapter-module)\
@@ -141,11 +141,11 @@ Students will:
 
         void setup() {
           Serial.begin(115200);
-          Serial.print("Hello, World!");
+          Serial.println("Hello, World!");
         }
 
         void loop() {
-          Serial.print(count);
+          Serial.println(count);
           count++;
           delay(1000);
         }
