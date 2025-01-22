@@ -76,14 +76,16 @@ One of the first things many programmers test on a new microcontroller is whethe
 Besides the onboard LED, the Wireless Tracker can control 40 other outputs! Most of them are already being used with the GPS, radio, and display, so there are only about 10 that we can use without interference. For now, we will use the ones numbered 4 through 6.
 
 1. Carefully place the Wireless Tracker on your breadboard as shown in the image below. Notice how it straddles the center row so that we can use the sockets on each side to connect to the pins on the Wireless Tracker board.\
-  ![Image of the Wireless Tracker placed on a breadboard](assets/images/wireless_tracker_on_breadboard.png =320x)
+      <img src="assets/images/wireless_tracker_on_breadboard.png" alt="Image of the Wireless Tracker placed on a breadboard" width="320"/>
   
 2. Place components on your breadbaord:
     - Connect LEDs to pins 4, 5, and 6. Notice that the LEDs have one wire that is longer. The longer wire should go in the socket that is connected to pin 4, 5, or 6. The shorter wire should go in the next row, past the channel cut into the bredboard.\
     - Connect 470-ohm resistors to the row with the short ends of the LEDs and the vertical row that is colored with a blue stripe, on the side of the board. See the image below.\
     - Connect a jumper wire from one of the board pins labeled GND to the blue-striped ground row on the breadbaord. This completes the circuit back to the microcontroller from the breadboard.\
-  ![Image of red LED connection](assets/images/red_LED_on_breadboard.png =320x)\
-  ![Image of all components placed on breadbaord](assets/images/three_LEDs_on_breadboard.png =320x)
+      <br>
+      <img src="assets/images/red_LED_on_breadboard.png" alt="Image of red LED connection" width="320"/>
+      <img src="assets/images/three_LEDs_on_breadboard.png" alt="Image of all components placed on breadbaord" width="320"/>
+      
   
 3. Add the following lines to the declaration section:
     ```
