@@ -56,11 +56,11 @@ One of the first things many programmers test on a new microcontroller is whethe
     - There is a pattern to how lines are indented. See if you can figure out and follow this pattern.
 
 4. Add some lines to control the built-in LED on the Wireless Tracker board.
-    - In the declaration section, add the line below. It tells the program, or "declares", that the on- board LED is connected to pin 18.
+    - In the declaration section, add the line below. It tells the program that the on-board LED is connected to pin 18.
     ``` #define BOARD_LED 18 ```
-    - Inside the setup section, add the line below. It sets the same pin to be an *output*, where power flows out from the baord to the LED. Later, we will set some pins to be *inputs*.
+    - Inside the ```setup()``` section, add the line below. It sets the same pin to be an *output*, where power flows out from the baord to the LED. Later, we will set some pins to be *inputs*.
     ``` pinMode(BOARD_LED, OUTPUT); ```
-    - Inside the loop section, and the lines below. You should be able to figure out what they do.
+    - Inside the ```loop()``` section, and the lines below. You should be able to figure out what they do.
     ```
     digitalWrite(BOARD_LED, HIGH);  
     delay(1000);                     
@@ -79,29 +79,27 @@ Besides the onboard LED, the Wireless Tracker can control 40 other outputs! Most
       <img src="assets/images/wireless_tracker_on_breadboard.png" alt="Image of the Wireless Tracker placed on a breadboard" width="320"/>
   
 2. Place components on your breadbaord:
-    - Connect LEDs to pins 4, 5, and 6. Notice that the LEDs have one wire that is longer. The longer wire should go in the socket that is connected to pin 4, 5, or 6. The shorter wire should go in the next row, past the channel cut into the bredboard.\
-    - Connect 470-ohm resistors to the row with the short ends of the LEDs and the vertical row that is colored with a blue stripe, on the side of the board. See the image below.\
-    - Connect a jumper wire from one of the board pins labeled GND to the blue-striped ground row on the breadbaord. This completes the circuit back to the microcontroller from the breadboard.\
+    - Connect green, yellow, and red LEDs to pins 4, 5, and 6. Notice that the LEDs have one wire that is longer. The longer wire should go in the socket that is connected to pin 4, 5, or 6. The shorter wire should go in the next row, past the channel cut into the bredboard.\
+    - Connect 470-ohm resistors to the row with the short ends of the LEDs and the vertical row that is colored with a blue stripe, on the side of the board. See the image below.
+    - Connect a jumper wire from one of the board pins labeled GND to the blue-striped ground row on the breadbaord. This completes the circuit back to the microcontroller from the breadboard.
       <br>
       <img src="assets/images/red_LED_on_breadboard.png" alt="Image of red LED connection" width="320"/>
       <img src="assets/images/three_LEDs_on_breadboard.png" alt="Image of all components placed on breadbaord" width="320"/>
       
-  
 3. Add the following lines to the declaration section:
     ```
-    #define RED_LED 4
+    #define RED_LED 6
     #define YEL_LED 5
-    #define GRN_LED 6
+    #define GRN_LED 4
     ```
 
-4. Add the following lines inside the setup() section:
+4. Add the following lines inside the ```setup()``` section:
     ```
     pinMode(RED_LED, OUTPUT);
     pinMode(YEL_LED, OUTPUT);
     pinMode(GRN_LED, OUTPUT);
     ```
-
-5. Add lines inside the loop() section that turn all the LEDs on and off along with the white onboard LED. If you need a hint, realize that we are just copying what we did with the white LED for our new red, yellow and green LEDs.
+5. Add lines inside the ```loop()``` section that turn all the LEDs on and off along with the white onboard LED. If you need a hint, realize that we are just copying what we did with the white LED for our new red, yellow and green LEDs.
 
 6. Once you get all of the LEDs working, create a stoplight. The stoplight should operate like this:
     - first, the green LED should be on and the other LEDs off for 4 seconds.
@@ -109,3 +107,26 @@ Besides the onboard LED, the Wireless Tracker can control 40 other outputs! Most
     - then, the red LED should be on and the others off for 5 seconds.
     - these steps should repeat continuously.
     - if you wish, have the white LED represent a walk signal for pedestrians. When should this LED be on?
+
+### Bonus: Inputs
+As you may have guessed, the microcontroller's pins can be used as inputs as well as outputs. One easy input to experiemnt with is the user pushbutton built in to the Wireless Tracker board. This is the button closest to pin 18. The other button near the 5V pin resets the microcontroller.
+
+1. To use the user pushbutton, you will first configure it like you did for the LEDs:
+    - In the declaration section, add the line below because user pushbotton is on pin 0.
+    ``` #define USER_BTN 18 ```
+    - Inside the ```setup()``` section, add the line below to set the same pin to be an input.
+    ``` pinMode(USER_BTN, INPUT); ```
+
+2. Write code in the ```loop()``` section to check the value of the pushbutton and respond to it. One simple technique looks like this:
+    ```
+    if (digitalRead(USER_BTN)){
+      digitalWrite(BOARD_LED, HIGH);
+    } else {
+      digitalWrite(BOARD_LED, LOW);
+    }
+    ```
+
+3. Challenge: Some stop lights have crosswalk buttons where a pedestrian can interupt a green light to stop traffic and cross the street. Can you make the user pushbotton act like the crosswalk button? It would work something like this:
+    - normally, the green LED should be on and the other LEDs off.
+    - if the user presses the burron, the yellow LED should turn on and the others off for 1 second.Then, the red LED should be on and the others off for 5 seconds. The white LED should turn on with the red LED to show that pedestrians can cross.
+    - after these steps, the light should return to green until the user presses the button again.
