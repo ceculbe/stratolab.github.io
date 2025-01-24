@@ -22,19 +22,20 @@ In addition to the reading below, you can watch this [video](assets/videos/Lesso
 
 ## Steps
 
-  **IMPORTANT** Before wiring your Pico, UNPLUG IT FROM YOUR COMPUTER. If plugged in while wiring, you risk damaging the Pico or BMP-180 module.
+### Wire the BMP-180 to the Raspberry Pi Pico
 
-1. Wire the BMP-180 to the Raspberry Pi Pico.
-    BMP-180 Pins | Description | Pi Pico Pins
-    ------------ | ----------- | ------------
-    VIN          | (Voltage In): Provides power to the BMP-180. Connect to the 5V pin on Pico | 5V (40)
-    GND          | (Ground): Connect to the ground pin on Pico | GND (38)
-    SCL          | (Serial Clock): Accepts clock pulses from the Pico to synchronize data transmission | GP17 (22)
-    SDA          | (Serial Data): Used for data exchange | GP16 (21)
+**IMPORTANT** Before wiring your Pico, UNPLUG IT FROM YOUR COMPUTER. If plugged in while wiring, you risk damaging the Pico or BMP-180 module.
 
-    ![bmp-180-diagram](assets/images/pi-pico-bmp180.png)
+BMP-180 Pins | Description | Pi Pico Pins
+------------ | ----------- | ------------
+VIN          | (Voltage In): Provides power to the BMP-180. Connect to the 5V pin on Pico | 5V (40)
+GND          | (Ground): Connect to the ground pin on Pico | GND (38)
+SCL          | (Serial Clock): Accepts clock pulses from the Pico to synchronize data transmission | GP17 (22)
+SDA          | (Serial Data): Used for data exchange | GP16 (21)
 
-    ![Lesson Three](assets/images/lesson3.jpg)
+![bmp-180-diagram](assets/images/pi-pico-bmp180.png)
+
+![Lesson Three](assets/images/lesson3.jpg)
 
 ### Install BMP-180 Driver
 
