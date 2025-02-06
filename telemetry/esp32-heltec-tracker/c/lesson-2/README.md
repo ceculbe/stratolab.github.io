@@ -1,7 +1,7 @@
 # Lesson 2: Running a Program on the ESP32 Microcontroller
 
 ### Prerequisites:
-- To complete this lesson, you need to be able to connect your micorcontroller to your computer and upload a program to it using the IDE. If you are not able to do that, please complete [Lesson 1](../lesson-1/README.md) before continuing.
+- To complete this lesson, you need to be able to connect your microcontroller to your computer and upload a program to it using the IDE. If you are not able to do that, please complete [Lesson 1](../lesson-1/README.md) before continuing.
 
 ### Objectives:
 Students will: 
