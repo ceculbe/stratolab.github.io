@@ -74,4 +74,8 @@ Add the following lines at the top of a new program:
     - ```Serial.printf("Altitude %f ft\n",gps.altitude.feet());```
     - ```Serial.println();``` (adds a blank line to the output)
 
-4. Test your GPS module - and be prepared to be patient! As you learned earlier, your GPS module's clock needs to be set very precisely to work. It also helps for the GPS module to know roughly where in the world it is located. If this is the first time that the module has run in a while, it will need to calibarate before reporting any valaid data. This can sometimes take 30 minutes or more.
+4. Test your GPS module: upload the code, open the serial monitor - and be prepared to be patient! As you learned earlier, your GPS module's clock needs to be set very precisely to work. It also helps for the GPS module to know roughly where in the world it is located. If this is the first time that the module has run in a while, it will need to calibarate before reporting any valaid data. This can sometimes take 30 minutes or more. You can gen an idea of how well the calibation is progressing by watching the accuracy of the time.
+
+5. There are other readings that the gps can report. Can you find out what some are? Try slowly typing ```gps.``` and then pausing after the dot. The Arduino IDE has an autocomplete feature that will give options for what to type next. Most gps data readings are in the format ```gps.________._________()```
+
+*Not sure if your GPS is working correctly? The [solution code linked on Github](../lesson-3/Lesson_3_solution.ino) has some extra code that prints out the raw characters being sent from the GPS module. This is informative to see and can be helpful in troubleshooting.*

@@ -136,4 +136,4 @@ As you might have guessed, the microcontroller's pins can be used as inputs as w
     - after these steps, the light should return to green until the user presses the button again.
 
 
-*Still stuck? With your mentor, take a look at the [solution code linked on Github](../lesson-2/Lesson_2_solution.ino).
+*Still stuck? With your mentor, take a look at the [solution code linked on Github](../lesson-2/Lesson_2_solution.ino).*
