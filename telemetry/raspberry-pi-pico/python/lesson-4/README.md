@@ -22,20 +22,21 @@ In addition to the reading below, you can watch this [video](assets/videos/Lesso
 
 ## Steps
 
-  **IMPORTANT** Before wiring your Pico, UNPLUG IT FROM YOUR COMPUTER. If plugged in while wiring, you risk damaging the Pico or GT-U7 module.
+### Wire the GT-U7 to the Raspberry Pi Pico
 
-1. Wire the GT-U7 to the Raspberry Pi Pico.
-    GT-U7 Pins | Description | Pi Pico Pins
-    ------------ | ----------- | ------------
-    VCC          | (Voltage In): Provides power. Connect to the 5V pin on Pico | 5V (40)
-    GND          | (Ground): Connect to the ground pin on Pico | GND (38)
-    PPS          | (Pulse Per Second): Assists with synchronization | N/A
-    TXD          | (Transmit): Transmission pin used for serial communication | UART1 RX / GP5 (7)
-    RXD          | (Receive): Receiver pin used for serial communication | UART1 TX / GP4 (6)
+**IMPORTANT** Before wiring your Pico, UNPLUG IT FROM YOUR COMPUTER. If plugged in while wiring, you risk damaging the Pico or GT-U7 module.
 
-    ![gtu7-diagram](assets/images/pi-pico-gtu7.png)
+GT-U7 Pins | Description | Pi Pico Pins
+------------ | ----------- | ------------
+VCC          | (Voltage In): Provides power. Connect to the 5V pin on Pico | 5V (40)
+GND          | (Ground): Connect to the ground pin on Pico | GND (38)
+PPS          | (Pulse Per Second): Assists with synchronization | N/A
+TXD          | (Transmit): Transmission pin used for serial communication | UART1 RX / GP5 (7)
+RXD          | (Receive): Receiver pin used for serial communication | UART1 TX / GP4 (6)
 
-    ![Lesson Four](assets/images/WireUp.jpg)
+![gtu7-diagram](assets/images/pi-pico-gtu7.png)
+
+![Lesson Four](assets/images/WireUp.jpg)
 
 ### Install GT-U7 Driver
 
