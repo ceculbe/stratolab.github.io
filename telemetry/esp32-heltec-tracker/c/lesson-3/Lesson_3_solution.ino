@@ -36,5 +36,5 @@ void loop(){
   Serial.printf("Accuracy %f m\n",gps.hdop.hdop());
   Serial.println();
   
-  delay(5000);
+  delay(1000);
 }

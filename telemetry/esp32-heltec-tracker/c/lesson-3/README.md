@@ -30,7 +30,13 @@ After reading the article, discuss wirh your group and mentor. Can you explan th
 ### Using a GPS Module
 The Heltec Wirelss Tracker comes with a built-in GPS module and antenna. The antenna is the white square ont the front next to the display. It is larger and more visible than the module itself, which is under a metal shield on the back of the baord. 
 
-1. The GPS module communicates with the main microcontroller using a *UART serial* connection. This type of connection sends pulses that represent letters (similar to Morse code) over two wires. One wire sends pulses *to* the microcontroller and one wire receives pulses *from* the microcontroller.\
+1. You will need to install some additional files that are needed to communicate with the GPS module:
+    - Open the IDE on your computer. Click on the **Libraries** icon on the left.
+    - Type **Heltec ESP32** in the search box. The search results should show **Heltec ESP32 Series Dev-boards**. Click on the **Install** button to install this package of files. This is very similar to a step that you did in Lesson 1, but we are now installing library files instead of the board manager.
+    ![Image of the search box and Install button](assets/images/library-search-install.png)
+    - Next, install another library named **Adafruit GFX**. Repeat the step above, but search for this new library name and click **Install**. You will get a popup window asking about missing dependencies. Click **Install All**.
+
+2. The GPS module communicates with the main microcontroller using a *UART serial* connection. This type of connection sends pulses that represent letters (similar to Morse code) over two wires. One wire sends pulses *to* the microcontroller and one wire receives pulses *from* the microcontroller.\
 Add the following lines at the top of a new program:
     ```
     #include "Arduino.h"
@@ -52,31 +58,31 @@ Add the following lines at the top of a new program:
       Serial.println("GPS test beginning...");  
     }
     ```
-    Read the comments to learn what these lines do. You should see that we're declaring and setting up the pine on the board that we will use for communication. Also notice that there are *two* serial connections being set up. One goes to the GPS module. What is the second one for?
+    Read the comments to learn what these lines do. You should see that we're declaring and setting up the pin on the board that we will use for communication. Also notice that there are *two* serial connections being set up. One goes to the GPS module. What is the second one for?
 
-2. Add a loop() section to your code:
+3. Add a loop() section to your code:
     ```
     void loop(){
       while(Serial1.available()){
         gps.encode(Serial1.read());  // process one character at a time
       }
       // add code to output gps data here
-      delay(5000);                   // pause 5s between readings  
+      delay(1000);                   // pause 1s between readings  
     }
     ```
     This small section of code is key to the whole operation. The while loop repeats as long as there is data to read on the serial receive pin. The gps module *encodes* (or processes) each byte that is read. Once all available data has been resd, we can add code that will print out the gps data we are interested in.
 
-3.  Add some code to output the GPS data. Replace the line ``` // add code to output gps data here``` with one or more of the following lines:
+4.  Add some code to output the GPS data. Replace the line ``` // add code to output gps data here``` with one or more of the following lines:
     - ```Serial.printf("Tracking %d satellites\n",gps.satellites.value());```
     - ```Serial.printf("Time: %02d:%02d:%02d\n",gps.time.hour(),gps.time.minute(),gps.time.second());```
     - ```Serial.printf("Latitude %f deg\n",gps.location.lat());```
     - ```Serial.printf("Longtitude %f deg\n",gps.location.lng());```
     - ```Serial.printf("Altitude %f ft\n",gps.altitude.feet());```
-    - ```Serial.println();``` (adds a blank line to the output)
+    - ```Serial.println(); //(adds a blank line to the output)```
 
-4. Test your GPS module: upload the code, open the serial monitor - and be prepared to be patient! As you learned earlier, your GPS module's clock needs to be set very precisely to work. It also helps for the GPS module to know roughly where in the world it is located. If this is the first time that the module has run in a while, it will need to calibarate before reporting any valaid data. This can sometimes take 30 minutes or more. You can gen an idea of how well the calibation is progressing by watching the accuracy of the time.
+5. Test your GPS module: upload the code, open the serial monitor - and be prepared to be patient! As you learned earlier, your GPS module's clock needs to be set very precisely to work. It also helps for the GPS module to know roughly where in the world it is located. If this is the first time that the module has run in a while, it will need to calibarate before reporting any valaid data. This can sometimes take 30 minutes or more. You can gen an idea of how well the calibation is progressing by watching the accuracy of the time.
 
-5. There are other readings that the gps can report. Can you find out what some are? Try slowly typing ```gps.``` and then pausing after the dot. The Arduino IDE has an autocomplete feature that will give options for what to type next. Most gps data readings are in the format ```gps.________._________()```
+6. There are other readings that the gps can report. Can you find out what some are? Try slowly typing ```gps.``` and then pausing after the dot. The Arduino IDE has an autocomplete feature that will give options for what to type next. Most gps data readings are in the format ```gps.________._________()```
 
 
 *Not sure if your GPS is working correctly? The [solution code linked on Github](../lesson-3/Lesson_3_solution.ino) has some extra code that prints out the raw characters being sent from the GPS module. This is informative to see and can be helpful in troubleshooting.*
