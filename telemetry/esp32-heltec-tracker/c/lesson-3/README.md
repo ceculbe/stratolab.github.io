@@ -23,7 +23,7 @@ You have probably used GPS on a phone or in your car many times wihtout stopping
 [How Stuff Works: GPS](https://electronics.howstuffworks.com/gadgets/travel/gps.htm)
 
 After reading the article, discuss wirh your group and mentor. Can you explan the importance of these concepts in GPS?
-- Triangulation
+- Trialateration
 - Travel time
 - Synchronized clocks
 
