@@ -23,30 +23,31 @@
 In addition to the reading below, you can watch this [video](assets/videos/Lesson5.mp4?raw=true) for guidance!
 <br><br>
 
- ## Steps
+## Steps
 
- ### Hardware Configuration and Wiring
+### Wire the HW-125 SDCard reader to the Raspberry Pi Pico
 
- **IMPORTANT** Before wiring your Pico, UNPLUG IT FROM YOUR COMPUTER. If plugged in while wiring, you risk damaging the Pico or SDCard reader.
+**IMPORTANT** Before wiring your Pico, UNPLUG IT FROM YOUR COMPUTER. If plugged in while wiring, you risk damaging the Pico or SDCard reader.
 
-1. Wire the HW-125 SDCard reader to the Raspberry Pi Pico.
-    HW-125 Pins | Description | Pi Pico Pins
-    ----------- | ----------- | ------------
-    GND         | (Voltage Common Collector): Provides power to the HW-125. Connect to the 5V pin on Pico | GND (38)
-    VCC         | (Ground): Connect to the ground pin on Pico | 5V (40)
-    SCK         | (Serial Clock): Accepts clock pulses from the Pico to synchronize data transmission | GP10 (14)
-    MOSI        | (Master Out Slave In): SPI input to microSD card module | GP11 (15)
-    MISO        | (Master In Slave Out): SPI output from the microSD card module | GP12 (16)
-    CS          | (Chip Select): Control pin used to select one (or set) of devices on the SPI bus | GP13 (17) 
+HW-125 Pins | Description | Pi Pico Pins
+----------- | ----------- | ------------
+GND         | (Voltage Common Collector): Provides power to the HW-125. Connect to the 5V pin on Pico | GND (38)
+VCC         | (Ground): Connect to the ground pin on Pico | 5V (40)
+SCK         | (Serial Clock): Accepts clock pulses from the Pico to synchronize data transmission | GP10 (14)
+MOSI        | (Master Out Slave In): SPI input to microSD card module | GP11 (15)
+MISO        | (Master In Slave Out): SPI output from the microSD card module | GP12 (16)
+CS          | (Chip Select): Control pin used to select one (or set) of devices on the SPI bus | GP13 (17) 
 
-    ![sd-card-diagram](assets/images/pi-pico-hw150.png)
+![sd-card-diagram](assets/images/pi-pico-hw150.png)
 
-    Finished wire up:
-    ![sd-card-diagram](assets/images/WireUp.jpg)
+Finished wire up:
+![sd-card-diagram](assets/images/WireUp.jpg)
 
-1. Format the micro SD card as `FAT32`. Use [How to Format SD Card on Mac, Windows, Android and Camera](https://www.cisdem.com/resource/how-to-format-sd-card.html) as a guide.
+### Format the micro SD card
 
-> :information_source: **Partition larger SD card to 32GB**  
+Format the micro SD card as `FAT32`. Use [How to Format SD Card on Mac, Windows, Android and Camera](https://www.cisdem.com/resource/how-to-format-sd-card.html) as a guide.
+
+> **Partition larger SD card to 32GB**  
 If you do not have a 32GB card you can [partition](assets/images/sdCardFormat.gif) a larger card down to 32GB and it will work as well. Be cautious in using Disk Formatter because you can accidentally reformat any attached storage device to your computer. **Double check you have selected the SD card you want to format**.
 
 ### Install SD Card MicroPython Driver

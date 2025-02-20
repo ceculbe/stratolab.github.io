@@ -14,21 +14,20 @@
 * Installing supported MicroPython libraries using Thonny IDE
 * Understanding how to interface with an I2C display device
 
- ## Steps
+## Steps
 
- ### Hardware Configuration and Wiring
+### Wire the SSD1306 OLED display module to the Raspberry Pi Pico.
 
- **IMPORTANT** Before wiring your Pico, UNPLUG IT FROM YOUR COMPUTER. If plugged in while wiring, you risk damaging the Pico or SDCard reader.
+**IMPORTANT** Before wiring your Pico, UNPLUG IT FROM YOUR COMPUTER. If plugged in while wiring, you risk damaging the Pico or SDCard reader.
 
-1. Wire the SSD1306 OLED display module to the Raspberry Pi Pico.
-    SSD1306 Pins | Description | Pi Pico Pins
-    ------------ | ----------- | ------------
-    GND          | (Voltage Common Collector): Provides power to the module. Connect to the 5V pin on Pico | GND (38)
-    VCC          | (Ground): Connect to the ground pin on Pico | 5V (40)
-    SCL          | (Serial Clock): Accepts clock pulses from the Pico to synchronize data transmission | GP10 (17)
-    SDA          | (Serial Data): Used for data exchange | GP16 (16)
+SSD1306 Pins | Description | Pi Pico Pins
+------------ | ----------- | ------------
+GND          | (Voltage Common Collector): Provides power to the module. Connect to the 5V pin on Pico | GND (38)
+VCC          | (Ground): Connect to the ground pin on Pico | 5V (40)
+SCL          | (Serial Clock): Accepts clock pulses from the Pico to synchronize data transmission | GP10 (17)
+SDA          | (Serial Data): Used for data exchange | GP16 (16)
 
-    ![ssd1306-diagram](assets/images/ssd1306-diagram.png)
+![ssd1306-diagram](assets/images/ssd1306-diagram.png)
 
 ### Install the SSD1306 Library
 
