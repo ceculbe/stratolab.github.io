@@ -1,16 +1,16 @@
 # Lesson 3: Knowing Where You Are
 
-### Prerequisites:
+### Prerequisites
 - To complete this lesson, you need to be able to connect your microcontroller to your computer and upload a program to it using the IDE. If you are not able to do that, please complete [Lesson 1](../lesson-1/README.md) before continuing.
 - You should have a good understanding of how to write code in the declaration, setup, and loop sections of a program. It is recommended to complete [Lesson 2](../lesson-2/README.md).
 
-### Objectives:
+### Objectives
 Students will: 
 - Learn the basic principles of the Global Positioning System  
 - Learn how a GPS module communicates with a microcontroller
 - Write a program to record latitude, longitude and other parameters from a GPS module.
 
-### Materials:
+### Materials
 - [Heltec Wireless Tracker](https://heltec.org/project/wireless-tracker/)\
   ![Image of Heltec Wireless Tracker](assets/images/heltec_wireless_tracker.png)
 - [External GPS Antenna](https://en.wikipedia.org/wiki/Antenna_(radio)) (optional)\
