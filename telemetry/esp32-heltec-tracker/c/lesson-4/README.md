@@ -12,33 +12,20 @@ Students will:
 
 ### Materials
 - [Heltec Wireless Tracker](https://heltec.org/project/wireless-tracker/)\
-  ![Image of Heltec Wireless Tracker](assets/images/heltec_wireless_tracker.png)
+  ![Image of Heltec Wireless Tracker](./assets/images/heltec_wireless_tracker.png)
 - [BMP180 Sensor](https://www.adafruit.com/product/1603)\
-  ![Image of BMP180 sensor Adafruit License: CC BY-NC-SA 2.0](assets/images/bmp_180.png)
+  ![Image of BMP180 sensor Adafruit License: CC BY-NC-SA 2.0](./assets/images/bmp180.png)
 - Breadboard
 - Jumper Wires
   
 ## Activity
 
 ### Understanding the Tech
-The BMP180 makes clever use of a phnomenon called [piezoresistance](https://en.wikipedia.org/wiki/Piezoresistive_effect). This is when a material changes its electrical resistance when it is stetched or compressed. The engineers who designed the BMP180 made a sensor that is stretched and compressed in different ways when the temperature changes and when the air pressure changes. A sensitive electronic circuit then measures this change in resistance and does some calculations to find the temperature and pressure. More information on how the pressure calculation works can be found [here](https://docs.arduino.cc/tutorials/nano-33-ble-sense/barometric-sensor/#atmospheric-pressure-and-altitude). The temperature calculation is similar and uses a piezo element that changes as it gets hotter and colder.
+The BMP180 makes clever use of a phnomenon called [piezoresistance](https://en.wikipedia.org/wiki/Piezoresistive_effect). This is when a material changes its electrical resistance when it is *strained* - stretched or compressed. The engineers who designed the BMP180 made a sensor that is strained in different ways when the temperature changes and when the air pressure changes. A sensitive electronic circuit then measures this change in resistance and does some calculations to find the temperature and pressure. More information on how the pressure calculation works can be found [here](https://docs.arduino.cc/tutorials/nano-33-ble-sense/barometric-sensor/#atmospheric-pressure-and-altitude). The temperature calculation is similar and uses a piezo element that changes as it gets hotter and colder.
 
 Once the BMP180 sensor has calculated the temperature and pressure, it needs to send this data to the microcontroller. The sensor and microcontroller must both agree on the way to send this data over a few wires. This is called a *protocol*. Imagine that you were on a ship and needed to send a message to another ship by blinking a spotlight. How would you do it? You might both agree in advance to use Morse code - one of the most oldest protocols for sending text from one place to another. The BMP180 could in fact use Morse code, but instead it uses a more efficient protocol called the Inter-Integrated Circuit protocol or simply *I2C*. More details on how I2C works can be found on [this SprakFun tutorial](https://learn.sparkfun.com/tutorials/i2c/all) but the basic idea is that the protocol uses two wires - one for data, called the *SDA* wire, and one for a clock signal, called the *SCL* wire.
 
-### Wiring the Sensor
-The BMP180 needs a total of four wire connections - power, ground, SDA and SCL. 
-
-1. Before placing the BMP180 onto the breadboard, read the pin labels that are on the bottom of the sensor. These will be hidden once you place the sensor, so make a sektch on paper showing which pin is which when seen from the top. **Have your mentor or instructor double check your sketch before continuing.** If you mix up the wire connections, you could destroy the sensor in less than a second! The sketch will help you make sure your wiring is correct.
-
-2. Unlplug the microcontroller from power and USB. Place the BMP180 onto the breadboard slightly below the microcontroller. Place it so that the four pins of the BMP180 are in four different rows of the breadbaord.
-
-3. Connect a jumper wire from the BMP180 VIN pin to the red "power" rail of the breadboard. Also connect the red power rail to the 3.3V pin on the microcontroller. (It is the 3rd pin down on the left side.)
-
-4. Connect a jumper wire from the BMP180 GND pin to the blue "ground" rail of the breadboard. Also connect the blue ground rail to the GND pin on the microcontroller. (It is the 4th pin down on the left side.) Refer to the photo below. Notice that the circuit is using the power and ground rails that run directly below the mocrocontroller. You may also use the rails on the left or right edge of the board.
-
-5. Connect a jumper wire from the SDA pin of the sensor to pin 46 on the microcontroller. Also connect a jumper wire from the SCL pin of the sensor to pin 45 on the microcontroller.
-
-### Using the BMP180 Sensor
+### Communicating with the BMP180 Sensor
 Getting the microcontroller to communicate with the BMP108 is easiest if we make use of some code that others have already written to take care of the I2C communication to the BMP180. This is called "library" code.
 
 1. Open the Arduino IDE and start a new program. 
@@ -57,8 +44,9 @@ Getting the microcontroller to communicate with the BMP108 is easiest if we make
     void setup() {
 	    Wire.begin(SDA, SCL);   // set up the I2C protocol to communicate with sensors
       Serial.begin(115200);   // set up the serial protocol to  communicate with laptop
-      scan();                 // find all connected I2C devices
       bmp.begin();            // start communicating with the BMP180 sensor
+      delay(1000);            // pause to allow all initialization to finish
+      scan();                 // find all connected I2C devices
     }
 ```
 
@@ -98,7 +86,25 @@ Getting the microcontroller to communicate with the BMP108 is easiest if we make
     }
     ```
 
-5. Complile and upload the code. Test the temperature sensor by wrming it with your hand. Check the internet to see if the barometric pressure is similar to what is reported in today's weather. (You may need to convert units.)
+5. The first time you compile your code, it may tke 5 minutes or more. To make the best use of your time, click the "Compile" button - the check mark - to have the Arduino IDE work on compiling while you work on wiring the sensor. You do not need to have the microcontroller pullged in to compile the code. 
+
+### Wiring the Sensor
+The BMP180 needs a total of four wire connections - power, ground, SDA and SCL. 
+
+1. Before placing the BMP180 onto the breadboard, read the pin labels that are on the bottom of the sensor. These will be hidden once you place the sensor, so make a sektch on paper showing which pin is which when seen from the top. **Have your mentor or instructor double check your sketch before continuing.** If you mix up the wire connections, you could destroy the sensor in less than a second! The sketch will help you make sure your wiring is correct.
+
+2. **Unlplug the microcontroller from power and USB.** Place the BMP180 onto the breadboard slightly below the microcontroller. Place it so that the four pins of the BMP180 are in four different rows of the breadbaord.
+
+3. Connect a jumper wire from the BMP180 VIN pin to the red "power" rail of the breadboard. Also connect the same red power rail to the 3.3V pin on the microcontroller. (It is the 3rd pin down on the left side.)
+
+4. Connect a jumper wire from the BMP180 GND pin to the blue "ground" rail of the breadboard. Also connect the same blue ground rail to the GND pin on the microcontroller. (It is the 4th pin down on the left side.) Refer to the photo below. Notice that the circuit is using the power and ground rails that run directly below the mocrocontroller. You may also use the rails on the left or right edge of the board.
+
+5. Connect a jumper wire from the SDA pin of the sensor to pin 46 on the microcontroller. Also connect a jumper wire from the SCL pin of the sensor to pin 45 on the microcontroller.
+
+6. Check your wiring with the photo below. Then, have someone else like your mentor check your wiring. You can use the right or left red and blue rails instead of the center ones, but make sure that power and ground from the microcontroller is reaching the BMP180.\
+    ![Photo of correct BMP wiring](./assets/images/bmp_wiring_connections.jpg)
+
+7. Plug the microcontroller into your laptop and upload the code using the right arrow button. Test the temperature sensor by wrming it with your hand. Check the internet to see if the barometric pressure is similar to what is reported in today's weather. (You may need to convert units.)
 
 ### Using the LED Display
 
