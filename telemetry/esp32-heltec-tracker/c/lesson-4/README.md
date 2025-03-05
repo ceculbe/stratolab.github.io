@@ -116,7 +116,7 @@ The BMP180 needs a total of four wire connections - power, ground, SDA and SCL.
 
 2. Add this line inside your setup function:
     ```
-    st7735.st7735_init();
+    screen.st7735_init();
     ```
 
 3. Add lines similar to these just before the ```delay(3000);``` line:

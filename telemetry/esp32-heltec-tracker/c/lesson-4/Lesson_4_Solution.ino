@@ -2,19 +2,20 @@
 #include <Wire.h>
 #include <BMP180.h>
 #include "HT_st7735.h"
+
 HT_st7735 screen;
 
-#define SDA 46
-#define SCL 45
-
 BMP085 bmp;               // create a sensor object (085 is not a typo)
+#define SDA 46            // ...and set its I2C pin connections
+#define SCL 45
 
 void setup() {
 	Wire.begin(SDA, SCL);   // set up the I2C protocol to communicate with sensors
   Serial.begin(115200);   // set up the serial protocol to  communicate with laptop
-  scan();                 // find all connected I2C devices
   bmp.begin();            // start communicating with the BMP180 sensor
-  screen.st7735_init();
+  screen.st7735_init();   // start SPI communication with the LED screen
+  delay(1000);            // pause to allow all initialization to finish
+  scan();                 // find all connected I2C devices
 }
 
 void scan(){
