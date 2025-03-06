@@ -93,7 +93,7 @@ The BMP180 needs a total of four wire connections - power, ground, SDA and SCL.
 
 1. Before placing the BMP180 onto the breadboard, read the pin labels that are on the bottom of the sensor. These will be hidden once you place the sensor, so make a sektch on paper showing which pin is which when seen from the top. **Have your mentor or instructor double check your sketch before continuing.** If you mix up the wire connections, you could destroy the sensor in less than a second! The sketch will help you make sure your wiring is correct.
 
-2. **Unlplug the microcontroller from power and USB.** Place the BMP180 onto the breadboard slightly below the microcontroller. Place it so that the four pins of the BMP180 are in four different rows of the breadbaord.
+2. **Unplug the microcontroller from power and USB.** Place the BMP180 onto the breadboard slightly below the microcontroller. Place it so that the four pins of the BMP180 are in four different rows of the breadbaord.
 
 3. Connect a jumper wire from the BMP180 VIN pin to the red "power" rail of the breadboard. Also connect the same red power rail to the 3.3V pin on the microcontroller. (It is the 3rd pin down on the left side.)
 

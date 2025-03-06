@@ -1,4 +1,4 @@
-# Lesson 5: How to Write Stuff Down
+# Lesson 5: How to Record Stuff
 
 ### Prerequisites
 - To complete this lesson, you need to be able to connect your microcontroller to your computer and upload a program to it using the IDE. If you are not able to do that, please complete [Lesson 1](../lesson-1/README.md) before continuing.
@@ -104,13 +104,13 @@ The SD card reader needs six wires connecting it to the circuit: 3.3V power, gro
     - MISO carries data from the card reader to the microconroller
 Notice that SPI has a separate line for data going in each direction, unlike I2C which can only carry data in one direction at a time. This is one reason why SPI is faster than I2C. 
 
-1. **Unlplug the microcontroller from power and USB.** Do not remove the BMP180 sensor or its wiring. Place the SD card reader onto the breadboard slightly above the microcontroller. Place it so that the six pins are in six different rows of the breadbaord.
+1. **Unplug the microcontroller from power and USB.** Do not remove the BMP180 sensor or its wiring. Place the SD card reader onto the breadboard slightly above the microcontroller. Place it so that the six pins are in six different rows of the breadbaord.
 
 2. Connect a jumper wire from the SD card reader 3.3V pin to the red "power" rail of the breadboard. Also connect the same red power rail to the 3.3V pin on the microcontroller if you have not done so in a previous lesson.
 
 3. Connect a jumper wire from the SD card reader GND pin to the blue "ground" rail of the breadboard. Also connect the same blue ground rail to the GND pin on the microcontroller if you have not done so in a previous lesson.
 
-4. The CLK, CS, MOSI, and MISO pins of the card reader connect to pins 4 though 7 of your microcontroller. Look at your code in the Arduino IDE to figure out which pin to connect to which number. The photo below shows one way of neatly connecting these wires. It is okay to use longer wires with some slack, but try to keep your board neat.
+4. The CLK, CS, MOSI, and MISO pins of the card reader connect to pins 4 though 7 of your microcontroller. Look at your code in the Arduino IDE to figure out which pin to connect to which number. The photo below shows one way of neatly connecting these wires. It is okay to use longer wires with some slack, but try to keep your board neat.\
     ![SD card reader on breadboard](./assets/images/sd_card_reader_on_breadboard.png)
 
 5. Plug the microcontroller into your laptop and upload the code using the right arrow button. After the code has run, unplug the microcontroller, remove the SD card, and insert the SD card into your laptop. Check to see that the file was written correctly.
@@ -124,13 +124,14 @@ To complete this lesson, we will add code to repeatedly write data from the BMP1
     #include <Wire.h>
     #include <BMP180.h>
 
-    BMP085 bmp;               // create a sensor object (085 is not a typo)
-    #define SDA 46            // ...and set its I2C pin connections
+    // create a sensor object (085 is not a typo) and set I2C pins for communication
+    BMP085 bmp; 
+    #define SDA 46
     #define SCL 45
     ```
 2. Also add these lines in the ```setup()``` section:
     ```
-   	Wire.begin(SDA, SCL);   // set up the I2C protocol to communicate with sensors
+    Wire.begin(SDA, SCL);   // set up the I2C protocol to communicate with sensors
     bmp.begin();            // start communicating with the BMP180 sensor
     ```
 
@@ -145,7 +146,7 @@ To complete this lesson, we will add code to repeatedly write data from the BMP1
 4. The code so far will write "1,2,3,4" to the file every 3 seconds. Instead, we would like to write something useful from the BMP180 sensor, like the temperature. The line that reads the temperature from the BMP 180 is: ```double tempC =bmp.readTemperature();``` Add this line to the top of the loop section. Then add these lines that create a neatly formatted output string:
     ```
     void loop() {
-        double tempC =bmp.readTemperature();
+        double tempC = bmp.readTemperature();
         char data[10];                        // create a character array to hold output
         dtostrf(tempC, 0, 2, data);           // convert the temp int characters
         writeDataToFile("/test.txt",data);    // write the data characters to file 
