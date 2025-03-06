@@ -26,9 +26,9 @@ Students will:
 ## Activity
 
 ### Understanding the Tech
-SD cards are another amazing modern technology that usually gets overlooked. A "Micro SD" card is smaller than a dime but can hold billions and billions of words, numbers, or other data. 
-
-The entire contents of the Normal Public Library could be stored on a single 64 Gb SD card! And in 2025, a micro SD card of this size was available for less than ten dollars. Storing information has never been cheaper or smaller. After this lesson, you can decide whether it is *easy* as well.
+SD cards are another amazing modern technology that usually gets overlooked. A "Micro SD" card is smaller than a dime but can hold billions of words, numbers, or other data. Like USB drives, SSDs, and phone memory, SD cards contain huge numbers of *flash memroy cells*. These are a special type of transistor that either allows electric current to flow through or blocks current. In the diagram below, current flows from the "IN" wire and across the gap in the N-type silicon, but only when there is no electric charge stored in the lower grey block. The upper grey block is used to add or remove charge, setting the flash memory cell to be off or on.\
+    ![Diagram of flash memory cell with a gap between two N-type silicon sections.](./assets/images/flash_memory_cell.png)\
+This either/or behavior can be used to store one binary *bit* of data. Eight flash memory cells make a *byte*, and then billions of those groups of eight make up the gigabytes of storage capacity on an SD card. The entire contents of the Normal Public Library could be stored on a single 64 Gb SD card! And in 2025, a micro SD card of this size was available for less than ten dollars. Storing information has never been cheaper or smaller. After this lesson, you can decide whether it is **easy** as well.
 
 ### Communicating with the SD Card
 SD cards use a different communication protocol than sensors like the BMP180. Instead of I2C, the protocol is called the *Serial Peripheral Interface* or *SPI* (pronounced either as "s-p-i" or "spy"). It uses a few more wires that I2C but can also be much faster, which s handy for writing lots of data to an SD card. Like using I2C, we will make use of existing library code to handle the SPI communication with the SD card. 
