@@ -84,7 +84,7 @@ SD cards use a different communication protocol than sensors like the BMP180. In
         if(!file){                                        // check file access error
             Serial.println("Failed to open file");
         }
-        if(file.print(data)){                             // try to actually write the data
+        if(file.println(data)){                             // try to actually write the data
             Serial.printf("Data written to %s: %s\n",filename, data);
         } else {                                          // check file writing error
             Serial.println("File write failed");
@@ -111,6 +111,7 @@ Notice that SPI has a separate line for data going in each direction, unlike I2C
 3. Connect a jumper wire from the SD card reader GND pin to the blue "ground" rail of the breadboard. Also connect the same blue ground rail to the GND pin on the microcontroller if you have not done so in a previous lesson.
 
 4. The CLK, CS, MOSI, and MISO pins of the card reader connect to pins 4 though 7 of your microcontroller. Look at your code in the Arduino IDE to figure out which pin to connect to which number. The photo below shows one way of neatly connecting these wires. It is okay to use longer wires with some slack, but try to keep your board neat.
+    ![SD card reader on breadboard](./assets/images/sd_card_reader_on_breadboard.png)
 
 5. Plug the microcontroller into your laptop and upload the code using the right arrow button. After the code has run, unplug the microcontroller, remove the SD card, and insert the SD card into your laptop. Check to see that the file was written correctly.
 
@@ -152,4 +153,7 @@ To complete this lesson, we will add code to repeatedly write data from the BMP1
     }
     ```
 
-5. Upload and test your code. 
+5. Upload your code. Let the program run for a minute or so, then unplug the microcontroller and remove the SD card. Insert it into your computer and see if the file holds the correct data. How could you make this data more useful? How could we arrange multiple data items in an easy-to-use format? Ask your mentor about CSV files.
+
+
+*Still stuck? With your mentor, take a look at the [solution code linked on Github](../lesson-5/Lesson_5_Solution.ino).*
