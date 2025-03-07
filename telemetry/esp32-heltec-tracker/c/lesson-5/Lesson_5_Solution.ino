@@ -29,7 +29,7 @@ void loop() {
   double tempC = bmp.readTemperature();
   char data[10];                        // create a character array to hold output
   dtostrf(tempC, 0, 2, data);           // convert the temp int characters
-  writeDataToFile("/test.txt",data);    // write the data characters to file 
+  appendDataToFile("/test.txt",data);    // write the data characters to file 
   delay(3000);
 }
 
@@ -46,7 +46,7 @@ void mountSDCard(){
   Serial.println(" Gb");
 }
 
-void writeDataToFile(const char * filename, const char * data){
+void appendDataToFile(const char * filename, const char * data){
     File file = SD.open(filename, FILE_APPEND);       // try to open the file to append (add on) data
     if(!file){                                        // check file access error
         Serial.println("Failed to open file");

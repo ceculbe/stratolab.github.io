@@ -138,7 +138,7 @@ To complete this lesson, we will add code to repeatedly write data from the BMP1
 3. Move the line ```writeDataToFile("/test3.txt","1,2,3,4");``` to the ```loop()``` section and add a delay of about 3 seconds, like this:
     ```
     void loop() {
-        writeDataToFile("/test.txt","1,2,3,4");
+        appendDataToFile("/test.txt","1,2,3,4");
         delay(3000);
     }
     ```
@@ -149,7 +149,7 @@ To complete this lesson, we will add code to repeatedly write data from the BMP1
         double tempC = bmp.readTemperature();
         char data[10];                        // create a character array to hold output
         dtostrf(tempC, 0, 2, data);           // convert the temp int characters
-        writeDataToFile("/test.txt",data);    // write the data characters to file 
+        appendDataToFile("/test.txt",data);    // write the data characters to file 
         delay(3000);
     }
     ```
