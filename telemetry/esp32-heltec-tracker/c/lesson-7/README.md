@@ -54,12 +54,6 @@ For each experiment, record the RSSI and SNR. What situation makes the worst sig
 
 6. Challenge: For a high-altitude ballon launch, we will need a signal range of at least 30 miles. Each time the distance is doubled, the RSSI decreased by 6 dBm. Can you figure out whether or not we have enough range?
 
-
-
-
-
-
-
 ## Programming
 Unlike previous lessons, this lesson will not walk through the code step-by-step. Instead, consider it your challenge to figure out the key lines in the code below. Notice that many of the lines have to do with displaying information on the screen. To figure out the radio code, look for the lines with the term ```lora.``` in them.
 
@@ -67,13 +61,26 @@ If you compile this code yourself, you will need to install the RadioLab library
 
 ### Receiver Code
 ```
+/*
+* LoRa receiver code
+*/
+
 #include "HT_st7735.h"
 #include <RadioLib.h>
 
-#define LORA_NSS  8
+#define LORA_NSS  8             // these 4 pin numbers are specific to the Heltec Wireless Tracker
 #define LORA_DIO1 14
 #define LORA_NRST 12
 #define LORA_BUSY 13
+#define LORA_MHZ 915.0          // fixed by FCC rules
+#define LORA_BANDWIDTH 125.0    // fixed in LoRa spec
+#define LORA_SF 12              // SF7 - SF12 are options
+#define LORA_CODERATE 7         // 5 - 8 are options
+#define LORA_SYNCWORD RADIOLIB_SX126X_SYNC_WORD_PRIVATE
+#define LORA_POWER 20
+#define LORA_PREAMBLE 8
+#define LORA_REF_V 1.6
+#define LORA_LDO_REG false
 
 HT_st7735 screen;
 
@@ -100,7 +107,7 @@ void loop() {
   
 int loraInit(){
   screen.st7735_write_str(0, 0, "LORA init...", Font_7x10, ST7735_WHITE, ST7735_BLACK);
-  int status1 = lora.begin();                    
+  int status1 = lora.begin(LORA_MHZ, LORA_BANDWIDTH, LORA_SF, LORA_CODERATE, LORA_SYNCWORD, LORA_POWER, LORA_PREAMBLE, LORA_REF_V, LORA_LDO_REG);                    
   lora.setPacketReceivedAction(onReceive);      // tells lora to call the interrupt function when a packet arrives
   int status2 = lora.startReceive();
 
@@ -115,50 +122,58 @@ int loraInit(){
 }
 
 void readPacket() {
-  String data;
-  int status = lora.readData(data);        // data is stored into "data" and status is stored is "status"
-  if (status == RADIOLIB_ERR_NONE) {
-    
-    // display data
-    screen.st7735_write_str(0, 12, "Data: ", Font_7x10, ST7735_WHITE, ST7735_BLACK);
-    screen.st7735_write_str(64, 12, data, Font_7x10, ST7735_WHITE, ST7735_BLACK);
-    
-    // display received signal strength
-    String rssi = (String)lora.getRSSI();
-    screen.st7735_write_str(0, 24, "RSSI:          dBm", Font_7x10, ST7735_WHITE, ST7735_BLACK);
-    screen.st7735_write_str(64, 24, rssi, Font_7x10, ST7735_WHITE, ST7735_BLACK);
+    String data;
+    int status = lora.readData(data);             // data is stored into "data" and status is stored is "status"
+    if (status == RADIOLIB_ERR_NONE) {
+        screen.st7735_write_str(0, 12, "Data: ", Font_7x10, ST7735_WHITE, ST7735_BLACK);
+        screen.st7735_write_str(64, 12, data, Font_7x10, ST7735_WHITE, ST7735_BLACK);
 
-    // display signal-to-noise ratio
-    String snr = (String)lora.getSNR();
-    screen.st7735_write_str(0, 36, "SNR:           dB", Font_7x10, ST7735_WHITE, ST7735_BLACK);
-    screen.st7735_write_str(64, 36, snr, Font_7x10, ST7735_WHITE, ST7735_BLACK);
+        String rssi = (String)lora.getRSSI();
+        screen.st7735_write_str(0, 24, "RSSI:          dBm", Font_7x10, ST7735_WHITE, ST7735_BLACK);
+        screen.st7735_write_str(64, 24, rssi, Font_7x10, ST7735_WHITE, ST7735_BLACK);
 
-    // display frequency error
-    String freqErr = (String)lora.getFrequencyError();
-    screen.st7735_write_str(0, 48, "Freq Err:       Hz", Font_7x10, ST7735_WHITE, ST7735_BLACK);
-    screen.st7735_write_str(64, 48, freqErr, Font_7x10, ST7735_WHITE, ST7735_BLACK);
- 
-  } else if (status == RADIOLIB_ERR_CRC_MISMATCH) {
+        String snr = (String)lora.getSNR();
+        screen.st7735_write_str(0, 36, "SNR:           dB", Font_7x10, ST7735_WHITE, ST7735_BLACK);
+        screen.st7735_write_str(64, 36, snr, Font_7x10, ST7735_WHITE, ST7735_BLACK);
+
+        String freqErr = (String)lora.getFrequencyError();
+        screen.st7735_write_str(0, 48, "Freq Err:       Hz", Font_7x10, ST7735_WHITE, ST7735_BLACK);
+        screen.st7735_write_str(64, 48, freqErr, Font_7x10, ST7735_WHITE, ST7735_BLACK);
+
+    } else if (status == RADIOLIB_ERR_CRC_MISMATCH) {
         screen.st7735_write_str(0, 12, "CRC Error", Font_7x10, ST7735_RED, ST7735_BLACK);
         screen.st7735_write_str(0, 24, "Malformed Packet", Font_7x10, ST7735_WHITE, ST7735_BLACK);
-  } else {
+    } else {
         String err = (String)status;
         screen.st7735_write_str(0, 12, "Rx Error:", Font_7x10, ST7735_RED, ST7735_BLACK);
         screen.st7735_write_str(80, 12, err, Font_7x10, ST7735_WHITE, ST7735_BLACK);
-  }
-  packetAvailable = false;   // reset flag
+    }
+    packetAvailable = false;   // reset flag
 }
 ```
 
 ### Transmitter Code
 ```
+/*
+* LoRa transmitter code
+*/
+
 #include "HT_st7735.h"
 #include <RadioLib.h>
 
-#define LORA_NSS  8
+#define LORA_NSS  8             // these 4 pin numbers are specific to the Heltec Wireless Tracker
 #define LORA_DIO1 14
 #define LORA_NRST 12
 #define LORA_BUSY 13
+#define LORA_MHZ 915.0          // fixed by FCC rules
+#define LORA_BANDWIDTH 125.0     // fixed in LoRa spec
+#define LORA_SF 12   // SF7 - SF12 are options
+#define LORA_CODERATE 7
+#define LORA_SYNCWORD RADIOLIB_SX126X_SYNC_WORD_PRIVATE
+#define LORA_POWER 20
+#define LORA_PREAMBLE 8
+#define LORA_REF_V 1.6
+#define LORA_LDO_REG false
 
 HT_st7735 screen;
 
@@ -189,7 +204,7 @@ void loop() {
 int loraInit(){
   screen.st7735_write_str(0, 0, "LORA init...", Font_7x10, ST7735_WHITE, ST7735_BLACK);
 
-  int status = lora.begin();
+  int status = lora.begin(LORA_MHZ, LORA_BANDWIDTH, LORA_SF, LORA_CODERATE, LORA_SYNCWORD, LORA_POWER, LORA_PREAMBLE, LORA_REF_V, LORA_LDO_REG);                    
   if (status == RADIOLIB_ERR_NONE) {
     screen.st7735_write_str(90, 0, "OK", Font_7x10, ST7735_GREEN, ST7735_BLACK);
   } else {
@@ -209,7 +224,7 @@ void sendPacket(){
   screen.st7735_write_str(0, 10, "Sending: ", Font_7x10, ST7735_WHITE, ST7735_BLACK);
   screen.st7735_write_str(56, 10, str, Font_7x10, ST7735_WHITE, ST7735_BLACK);
   transmissionStatus = lora.startTransmit(str);
-  delay(1000);
+  while(txBusy);          // wait for tx completion
   lora.finishTransmit();
 
   if (transmissionStatus == RADIOLIB_ERR_NONE) {
@@ -221,3 +236,6 @@ void sendPacket(){
   }
 }
 ```
+
+## More Advanced Topics
+There are many settings that can be confgiured on a LoRa radio to increase bitrate, range, or reliability. Each change comes with tradeoffs. For example, increasing bitrate decreases range. [This article](https://medium.com/@prajzler/what-is-lora-the-fundamentals-79a5bb3e6dec) goes into detail on how LoRa works and how to adjust settings. The specific commands used in our code are explained [here](https://github.com/jgromes/RadioLib/wiki/Default-configuration#sx126x---lora-modem). Note that the US used 915 MHz as the transmission frequency, not 434 MHz.
