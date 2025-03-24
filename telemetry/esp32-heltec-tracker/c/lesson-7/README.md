@@ -72,15 +72,15 @@ If you compile this code yourself, you will need to install the RadioLab library
 #define LORA_DIO1 14
 #define LORA_NRST 12
 #define LORA_BUSY 13
-#define LORA_MHZ 915.0          // fixed by FCC rules
-#define LORA_BANDWIDTH 125.0    // fixed in LoRa spec
-#define LORA_SF 12              // SF7 - SF12 are options
-#define LORA_CODERATE 7         // 5 - 8 are options
+#define LORA_MHZ 915.0         // fixed by FCC rules
+#define LORA_BANDWIDTH 125.0   // fixed in LoRa spec
+#define LORA_SF 9              // SF7 - SF12 are options
+#define LORA_CODERATE 7        // 5 - 8 bits are options
 #define LORA_SYNCWORD RADIOLIB_SX126X_SYNC_WORD_PRIVATE
-#define LORA_POWER 20
-#define LORA_PREAMBLE 8
-#define LORA_REF_V 1.6
-#define LORA_LDO_REG false
+#define LORA_POWER 10          // 0 - 21 dBm are options
+#define LORA_PREAMBLE 8        // recommended to not change
+#define LORA_REF_V 1.6         // recommended to not change
+#define LORA_LDO_REG false     // recommended to not change
 
 HT_st7735 screen;
 
@@ -165,15 +165,15 @@ void readPacket() {
 #define LORA_DIO1 14
 #define LORA_NRST 12
 #define LORA_BUSY 13
-#define LORA_MHZ 915.0          // fixed by FCC rules
-#define LORA_BANDWIDTH 125.0     // fixed in LoRa spec
-#define LORA_SF 12   // SF7 - SF12 are options
-#define LORA_CODERATE 7
+#define LORA_MHZ 915.0         // fixed by FCC rules
+#define LORA_BANDWIDTH 125.0   // fixed in LoRa spec
+#define LORA_SF 9              // SF7 - SF12 are options
+#define LORA_CODERATE 7        // 5 - 8 bits are options
 #define LORA_SYNCWORD RADIOLIB_SX126X_SYNC_WORD_PRIVATE
-#define LORA_POWER 20
-#define LORA_PREAMBLE 8
-#define LORA_REF_V 1.6
-#define LORA_LDO_REG false
+#define LORA_POWER 10          // 0 - 21 dBm are options
+#define LORA_PREAMBLE 8        // recommended to not change
+#define LORA_REF_V 1.6         // recommended to not change
+#define LORA_LDO_REG false     // recommended to not change
 
 HT_st7735 screen;
 
@@ -238,4 +238,7 @@ void sendPacket(){
 ```
 
 ## More Advanced Topics
-There are many settings that can be confgiured on a LoRa radio to increase bitrate, range, or reliability. Each change comes with tradeoffs. For example, increasing bitrate decreases range. [This article](https://medium.com/@prajzler/what-is-lora-the-fundamentals-79a5bb3e6dec) goes into detail on how LoRa works and how to adjust settings. The specific commands used in our code are explained [here](https://github.com/jgromes/RadioLib/wiki/Default-configuration#sx126x---lora-modem). Note that the US used 915 MHz as the transmission frequency, not 434 MHz.
+There are many settings that can be confgiured on a LoRa radio to increase bitrate, range, or reliability. Each change comes with tradeoffs. For example, increasing bitrate decreases range. [This article](https://medium.com/@prajzler/what-is-lora-the-fundamentals-79a5bb3e6dec) goes into detail on how LoRa works and how to adjust settings. The specific commands used in our code are explained [here](https://github.com/jgromes/RadioLib/wiki/Default-configuration#sx126x---lora-modem). Some important things to note:
+- The US uses 915 MHz as the transmission frequency, not 434 MHz
+- The transmitter and recevier must have matching values for all of the settings
+- If you get errors on uploading, uplug the board, hold the USER button and keep holding it while you plug it the board and upload the code. When the code has finished uploading, release the USER button and tap the RST button.
