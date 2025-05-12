@@ -1,4 +1,4 @@
-# Lesson 1: Introduction and how to get started building the StratoLab
+# Lesson 1: Introduction - how to get started building the StratoLab
 
 ### Objectives
 Students will: 
@@ -27,13 +27,13 @@ Students will:
     - Determine if it's dark, then turn on a light
     - Sense its hot and turn on a fan
   - Multiple actions can be taken with complex decisions software determines. An example:
-    - Thermostat:
+    - A Thermostat:
       - If its nighttime keep temperatures cooler
         - Determine if its night
           - Reduce temperature
             - If its hot turn on the air conditioning
             - If its cold use less heat
-    - Burglar alarm:
+    - A Burglar alarm:
       - Determine if the alarm is set
         - If a window is broken sound an alarm
           - Dispatch a security company to look for intruder
