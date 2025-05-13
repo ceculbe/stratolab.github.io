@@ -17,39 +17,39 @@
 ### Results
 * A field-ready prototype of all modules capable of accurately and reliably collecting data.
 
-<br><br>
-
 ## Steps
 
 ### Wire All the Modules into the Breadboard
 
 **IMPORTANT** Before wiring your Pico, UNPLUG IT FROM YOUR COMPUTER. If plugged in while wiring, you risk damaging the Pico or SDCard reader.
 
+It is recommended to wire each module in the order listed below. After you wire one module, test the code by uncommenting the code block for that module. By taking this approach, we can debug any modules that may not be working as expected using the troubleshooting techniques learned in pervious lessons.
+
 Module/Controller Pin | Description | Breadboard (BB) / Pi Pico Pins
 ----------- | ----------- | ------------
-**SD Card Module** | |
+**SSD1306 OLED Display** | |
+GND          | (Voltage Common Collector): Provides power to the module. Connect to the 5V pin on Pico | GND (38)
+VCC          | (Ground): Connect to the ground pin on Pico | 5V (40)
+SCL          | (Serial Clock): Accepts clock pulses from the Pico to synchronize data transmission | GP10 (17)
+SDA          | (Serial Data): Used for data exchange | GP16 (16)
+**SD Card** | |
 VCC         | (Voltage Common Collector): Provides power to the HW-125.  | BB Power (+)
 GND         | Ground | BB Ground (-)
 SCK         | (Serial Clock): Accepts clock pulses from the Pico to synchronize data transmission | GP10 (14)
 MOSI        | (Master Out Slave In): SPI input to microSD card module | GP11 (15)
 MISO        | (Master In Slave Out): SPI output from the microSD card module | GP12 (16)
-CS          | (Chip Select): Control pin used to select one (or set) of devices on the SPI bus | GP13 (17) 
+CS          | (Chip Select): Control pin used to select one (or set) of devices on the SPI bus | GP13 (17)
+**Pressure Temperature Sensor** | |
+VIN          | (Voltage In): Provides power to the BMP-180.  | BB Power (+)
+GND          | Ground | BB Ground (-)
+SCL          | (Serial Clock): Accepts clock pulses from the Pico to synchronize data transmission | GP17 (22)
+SDA          | (Serial Data): Used for data exchange | GP16 (21)
 **GPS Sensor** | |
 VCC          | (Voltage In): Provides power.  | BB Power (+)
 GND          | Ground | BB Ground (-)
 PPS          | (Pulse Per Second): Assists with synchronization | N/A
 TXD          | (Transmit): Transmission pin used for serial communication | UART1 RX / GP5 (7)
 RXD          | (Receive): Receiver pin used for serial communication | UART1 TX / GP4 (6)
-**Pressure Temperature Sensor** | |
-VIN          | (Voltage In): Provides power to the BMP-180.  | BB Power (+)
-GND          | Ground | BB Ground (-)
-SCL          | (Serial Clock): Accepts clock pulses from the Pico to synchronize data transmission | GP17 (22)
-SDA          | (Serial Data): Used for data exchange | GP16 (21)
-**SSD1306 OLED Display Module** | |
-GND          | (Voltage Common Collector): Provides power to the module. Connect to the 5V pin on Pico | GND (38)
-VCC          | (Ground): Connect to the ground pin on Pico | 5V (40)
-SCL          | (Serial Clock): Accepts clock pulses from the Pico to synchronize data transmission | GP10 (17)
-SDA          | (Serial Data): Used for data exchange | GP16 (16)
 **Raspberry Pico** | |
 5V (40)      | (Voltage In): Provides power.  | BB Power (+)
 GND (38)     | Ground | BB Ground (-)
